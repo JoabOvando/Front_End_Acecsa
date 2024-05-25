@@ -1,0 +1,58 @@
+<!-- src/app/pages/dashboard/dashboard.component.html -->
+<div class="dashboard-container">
+  <header class="header">
+    <h1>Dashboard</h1>
+    <button class="logout-button" (click)="logout()">Cerrar sesión</button>
+  </header>
+  <div class="main-content">
+    <nav class="sidebar">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/usuarios" routerLinkActive="active">Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/roles" routerLinkActive="active">Roles</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/empleados" routerLinkActive="active">Empleados</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/personalencargado" routerLinkActive="active">Personal Encargado</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/recursos" routerLinkActive="active">Recursos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/vehiculos" routerLinkActive="active">Vehículos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/insumos" routerLinkActive="active">Insumos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/charlas" routerLinkActive="active">Charlas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/personal-charla" routerLinkActive="active">Personal Charla</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/asignaciones-recursos" routerLinkActive="active">Asignaciones Recursos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/asignaciones-vehiculos" routerLinkActive="active">Asignaciones Vehículos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/asignaciones-insumos" routerLinkActive="active">Asignaciones Insumos</a>
+        </li>
+        <!-- Agrega más enlaces de navegación aquí si es necesario -->
+      </ul>
+    </nav>
+    <main class="content">
+      <!-- Aquí se cargarán los componentes según la ruta -->
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

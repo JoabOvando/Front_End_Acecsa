@@ -1,0 +1,72 @@
+<div class="container">
+    <h2>Gestión de Empleados</h2>
+  
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  
+    <div class="form-container">
+      <h3>Crear Empleado</h3>
+      <form (ngSubmit)="createEmpleado()">
+        <div class="form-group">
+          <label for="iD_Empleado">ID Empleado:</label>
+          <input type="number" id="iD_Empleado" [(ngModel)]="newEmpleado.iD_Empleado" name="iD_Empleado" required>
+        </div>
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" [(ngModel)]="newEmpleado.nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="apellido">Apellido:</label>
+          <input type="text" id="apellido" [(ngModel)]="newEmpleado.apellido" name="apellido" required>
+        </div>
+        <div class="form-group">
+          <label for="puesto">Puesto:</label>
+          <input type="text" id="puesto" [(ngModel)]="newEmpleado.puesto" name="puesto" required>
+        </div>
+        <div class="form-group">
+          <label for="iD_Usuario">ID Usuario:</label>
+          <input type="number" id="iD_Usuario" [(ngModel)]="newEmpleado.iD_Usuario" name="iD_Usuario" required>
+        </div>
+        <button type="submit">Crear</button>
+      </form>
+    </div>
+  
+    <div class="employee-list">
+      <h3>Lista de Empleados</h3>
+      <ul>
+        <li *ngFor="let empleado of empleados" (click)="selectEmpleado(empleado)">
+          {{ empleado.iD_Empleado }} - {{ empleado.nombre }} {{ empleado.apellido }} - {{ empleado.puesto }}
+          <button (click)="deleteEmpleado(empleado.iD_Empleado)">Eliminar</button>
+        </li>
+      </ul>
+    </div>
+  
+    <div *ngIf="selectedEmpleado" class="form-container">
+      <h3>Editar Empleado</h3>
+      <form (ngSubmit)="updateEmpleado()">
+        <div class="form-group">
+          <label for="editID_Empleado">ID Empleado:</label>
+          <input type="number" id="editID_Empleado" [(ngModel)]="selectedEmpleado.iD_Empleado" name="editID_Empleado" required>
+        </div>
+        <div class="form-group">
+          <label for="editNombre">Nombre:</label>
+          <input type="text" id="editNombre" [(ngModel)]="selectedEmpleado.nombre" name="editNombre" required>
+        </div>
+        <div class="form-group">
+          <label for="editApellido">Apellido:</label>
+          <input type="text" id="editApellido" [(ngModel)]="selectedEmpleado.apellido" name="editApellido" required>
+        </div>
+        <div class="form-group">
+          <label for="editPuesto">Puesto:</label>
+          <input type="text" id="editPuesto" [(ngModel)]="selectedEmpleado.puesto" name="editPuesto" required>
+        </div>
+        <div class="form-group">
+          <label for="editID_Usuario">ID Usuario:</label>
+          <input type="number" id="editID_Usuario" [(ngModel)]="selectedEmpleado.iD_Usuario" name="editID_Usuario" required>
+        </div>
+        <button type="submit">Actualizar</button>
+        <button type="button" (click)="clearSelection()">Cancelar</button>
+      </form>
+    </div>
+  </div>

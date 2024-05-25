@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Recursos</h2>
+    <form (ngSubmit)="createRecurso()">
+      <div class="form-group">
+        <label for="iD_Recurso">ID Recurso:</label>
+        <input type="number" id="iD_Recurso" name="iD_Recurso" [(ngModel)]="recurso.iD_Recurso" required>
+      </div>
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="recurso.nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" name="descripcion" [(ngModel)]="recurso.descripcion" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Crear Recurso</button>
+    </form>
+
+    <hr>
+
+    <ul class="list-group">
+      <li *ngFor="let recurso of recursos" class="list-group-item">
+        <div>ID: {{ recurso.iD_Recurso }}</div>
+        <div>Nombre: {{ recurso.nombre }}</div>
+        <div>Descripción: {{ recurso.descripcion }}</div>
+        <button type="button" class="btn btn-warning" (click)="updateRecurso(recurso.iD_Recurso)">Actualizar</button>
+        <button type="button" class="btn btn-danger" (click)="deleteRecurso(recurso.iD_Recurso)">Eliminar</button>
+      </li>
+    </ul>
+  </div>
